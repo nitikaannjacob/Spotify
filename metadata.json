@@ -1,0 +1,7 @@
+{
+  "name": "Spotify Case Study - Designing for Connection",
+  "description": "An interactive Spotify design thinking case study presentation exploring Blend, Jam, Made For You, and Sound Capsule.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
