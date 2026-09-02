@@ -445,13 +445,13 @@ export const PlayerBar: React.FC<PlayerBarProps> = ({
       </div>
 
       {/* Right section: Auxiliary controls */}
-      <div className="flex items-center justify-end gap-2 sm:gap-3 w-1/3 sm:w-1/4 min-w-[120px] text-[#b3b3b3]">
+      <div className="flex items-center justify-end gap-3 w-1/3 sm:w-1/4 min-w-[120px] text-[#b3b3b3]">
         <motion.button
           id="btn-player-lyrics"
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
           onClick={onOpenCaseStudy}
-          className="hidden md:block hover:text-white transition-colors cursor-pointer"
+          className="hidden md:flex items-center justify-center hover:text-white transition-colors cursor-pointer"
           title="Case Notes / Summary"
         >
           <Mic2 className="w-4 h-4" />
@@ -462,7 +462,7 @@ export const PlayerBar: React.FC<PlayerBarProps> = ({
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
           onClick={onOpenCaseStudy}
-          className="hidden md:block hover:text-white transition-colors cursor-pointer"
+          className="hidden md:flex items-center justify-center hover:text-white transition-colors cursor-pointer"
           title="Queue"
         >
           <ListMusic className="w-4 h-4" />
@@ -473,20 +473,20 @@ export const PlayerBar: React.FC<PlayerBarProps> = ({
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => onShowToast?.('Connected to Spotify Web Player', 'info')}
-          className="hidden lg:block hover:text-white transition-colors cursor-pointer"
+          className="hidden lg:flex items-center justify-center hover:text-white transition-colors cursor-pointer"
           title="Connect to a device"
         >
           <Laptop2 className="w-4 h-4" />
         </motion.button>
 
-        {/* Volume slider with smooth micro-interactions */}
-        <div className="flex items-center gap-1.5">
+        {/* Volume controls with pure flex vertical centering and equal spacing */}
+        <div className="flex items-center gap-2">
           <motion.button
             id="btn-player-mute"
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.85 }}
             onClick={toggleMute}
-            className="hover:text-white transition-colors cursor-pointer"
+            className="flex items-center justify-center hover:text-white transition-colors cursor-pointer"
             title={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted || volume === 0 ? (
@@ -495,7 +495,8 @@ export const PlayerBar: React.FC<PlayerBarProps> = ({
               <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
             )}
           </motion.button>
-          <div className="w-14 sm:w-20 hidden sm:block relative flex items-center group h-3 cursor-pointer">
+
+          <div className="w-16 sm:w-24 hidden sm:flex items-center h-5">
             <input
               id="player-volume-slider"
               type="range"
@@ -506,7 +507,7 @@ export const PlayerBar: React.FC<PlayerBarProps> = ({
                 setVolume(Number(e.target.value));
                 if (isMuted) setIsMuted(false);
               }}
-              className="w-full h-1 bg-[#4d4d4d] rounded-lg appearance-none cursor-pointer accent-[#1ed760] group-hover:h-1.5 transition-all"
+              className="w-full h-1 bg-[#4d4d4d] rounded-full appearance-none cursor-pointer accent-[#1ed760] hover:accent-[#1fdf64] transition-all self-center"
             />
           </div>
         </div>
@@ -516,7 +517,7 @@ export const PlayerBar: React.FC<PlayerBarProps> = ({
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
           onClick={toggleFullscreen}
-          className="hidden sm:block hover:text-white transition-colors ml-1 cursor-pointer"
+          className="hidden sm:flex items-center justify-center hover:text-white transition-colors cursor-pointer"
           title={isFullscreen ? 'Exit full screen' : 'Full screen'}
         >
           <Maximize2 className="w-4 h-4" />

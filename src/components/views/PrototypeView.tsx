@@ -17,7 +17,6 @@ import {
   Sparkles,
   TrendingUp,
   Repeat,
-  Share2,
 } from 'lucide-react';
 import { SectionId } from '../../types';
 
@@ -25,7 +24,7 @@ interface PrototypeViewProps {
   onNavigate: (section: SectionId) => void;
 }
 
-export const PrototypeView: React.FC<PrototypeViewProps> = () => {
+export const PrototypeView: React.FC<PrototypeViewProps> = ({ onNavigate }) => {
   const [jamPlaying, setJamPlaying] = useState<boolean>(true);
 
   return (
@@ -510,6 +509,22 @@ export const PrototypeView: React.FC<PrototypeViewProps> = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Interactive Evaluation & Navigation Prompt */}
+      <div className="p-8 rounded-3xl bg-gradient-to-r from-[#181818] via-[#202020] to-[#181818] border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="space-y-1 text-center sm:text-left">
+          <h3 className="text-xl font-bold text-white">Evaluate Key Learnings</h3>
+          <p className="text-sm text-[#a7a7a7]">
+            Review outcomes and strategic reflections gathered from this prototype iteration.
+          </p>
+        </div>
+        <button
+          onClick={() => onNavigate('learnings')}
+          className="px-6 py-3 rounded-full bg-[#1ed760] text-black font-bold text-sm hover:scale-105 hover:bg-[#1fdf64] transition-all shadow-lg shrink-0 cursor-pointer"
+        >
+          View Learnings &rarr;
+        </button>
       </div>
     </motion.div>
   );
